@@ -4,35 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #result {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
-<body>
-    <h1>Contact Book</h1>
-    <input type="text" id="search" placholder="search">
-    <button type="button"  onclick="search()"> Search</button>
-    <p id="r̥esult"> </p>git
 
-    <script>
-        const contactbook = {
-            tejal:9022845841,
-            shravani:8274664644,
-            pratiksha:1234567891
-            nidhi:2345678901,
-            gauri:3456789012        }
-
-            function search(){
-                const searchInput = document.getElementById("search");
-                const query = searchInput.value.toLowerCase();
-
-                const result= contacts[query]
-
-                const searchInput = document.getElementById("result");
-                if(mobile){
-                    result.innerText = `Mobile number of ${query} is ${mobile}`;
-                }
-                else{
-                    result.innerText=`contact not found`;
+    <body>
+        <div class="container">
+            <h1>Contact Book</h1>
+            <input type="text" id="search" placeholder="Search contact...">
+            <button type="button" onclick="searchContact()">Search</button>
+            <p id="result"></p>
+        </div>
+        <script>
+            const contactbook = {
+                tejal: 9022845841,
+                shravani: 8274664644,
+                pratiksha: 1234567891,
+                nidhi: 2345678901,
+                gauri: 3456789012
+            };
+    
+            function searchContact() {
+                const searchInput = document.getElementById("search").value.toLowerCase();
+                const resultElement = document.getElementById("result");
+                
+                if (contactbook[searchInput]) {
+                    resultElement.innerText = `Mobile number of ${searchInput} is ${contactbook[searchInput]}`;
+                    resultElement.style.color = "green";
+                } else {
+                    resultElement.innerText = "Contact not found";
+                    resultElement.style.color = "red";
                 }
             }
-    </script>
-</body>
+        </script>
+    </body>
+
 </html>
