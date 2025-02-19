@@ -10,5 +10,29 @@
     <input type="text" id="search" placholder="search">
     <button type="button"  onclick="search()"> Search</button>
     <p id="r̥esult"> </p>git
+
+    <script>
+        const contactbook = {
+            tejal:9022845841,
+            shravani:8274664644,
+            pratiksha:1234567891
+            nidhi:2345678901,
+            gauri:3456789012        }
+
+            function search(){
+                const searchInput = document.getElementById("search");
+                const query = searchInput.value.toLowerCase();
+
+                const result= contacts[query]
+
+                const searchInput = document.getElementById("result");
+                if(mobile){
+                    result.innerText = `Mobile number of ${query} is ${mobile}`;
+                }
+                else{
+                    result.innerText=`contact not found`;
+                }
+            }
+    </script>
 </body>
 </html>
